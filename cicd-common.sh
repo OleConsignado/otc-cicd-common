@@ -28,7 +28,7 @@ function deploy
 		mkdir $ARTIFACTS_FOLDER
 	fi
 
-	if [[ ${TRAVIS_BRANCH^^} = *"ALPHA"* ]] || [[ ${TRAVIS_BRANCH^^} = *"BETA"* ]]
+	if echo $TRAVIS_BRANCH | egrep -i 'alpha|beta' > /dev/null 2>&1
 	then
 		SUFFIX=$(echo $TRAVIS_BRANCH-build$TRAVIS_BUILD_NUMBER | sed 's/[^0-9A-Za-z-]//g')
 		SUFFIX_ARG="--version-suffix=$SUFFIX"
