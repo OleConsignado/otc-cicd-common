@@ -34,8 +34,9 @@ function deploy
 	then
 		SUFFIX=$(echo $TRAVIS_BRANCH-build$TRAVIS_BUILD_NUMBER | sed 's/[^0-9A-Za-z-]//g')
 		SUFFIX_ARG="--version-suffix=$SUFFIX"
-		echo "SUFFIX_ARG is $SUFFIX_ARG"
 	fi
+	
+	echo "SUFFIX_ARG is $SUFFIX_ARG"
 
 	dotnet pack -c Release $SUFFIX_ARG -o $ARTIFACTS_FOLDER
 	dotnet nuget push $ARTIFACTS_FOLDER/*.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
