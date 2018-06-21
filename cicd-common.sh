@@ -23,6 +23,8 @@ function deploy
 	cd "$TRAVIS_BUILD_DIR/$CLASS_LIBRARY_PROJ_DIR"
 	ARTIFACTS_FOLDER=./artifacts
 
+	echo "TRAVIS_BRANCH is: $TRAVIS_BRANCH"
+
 	if [ ! -d $ARTIFACTS_FOLDER ]
 	then
 		mkdir $ARTIFACTS_FOLDER
