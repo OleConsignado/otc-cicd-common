@@ -32,7 +32,7 @@ function deploy
 
 	if echo $TRAVIS_BRANCH | egrep -i 'alpha|beta' > /dev/null 2>&1
 	then
-		SUFFIX=$(echo $TRAVIS_BRANCH-build$TRAVIS_BUILD_NUMBER | sed 's/[^0-9A-Za-z-]*//g')
+		SUFFIX=$(echo $TRAVIS_BRANCH-build$TRAVIS_BUILD_NUMBER | sed 's/[^0-9A-Za-z]*//g')
 		SUFFIX_ARG="--version-suffix=$SUFFIX"
 		echo "** It's alpha|beta release, suffix: $SUFFIX"
 	fi
